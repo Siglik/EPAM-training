@@ -1,4 +1,4 @@
-package org.qqq175.airline.creator.implemented;
+package org.qqq175.airline.creator;
 
 import java.util.ArrayList;
 import java.util.List;

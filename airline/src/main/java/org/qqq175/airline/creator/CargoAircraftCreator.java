@@ -1,9 +1,8 @@
-package org.qqq175.airline.creator.implemented;
+package org.qqq175.airline.creator;
 
 import java.util.List;
 
 import org.qqq175.airline.airplane.CargoAircraft;
-import org.qqq175.airline.creator.PlaneCreator;
 import org.qqq175.airline.exception.InputDataCorruptedException;
 
 public class CargoAircraftCreator extends PlaneCreator {

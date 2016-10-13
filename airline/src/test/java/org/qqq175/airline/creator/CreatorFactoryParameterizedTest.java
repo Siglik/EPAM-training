@@ -10,8 +10,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import org.qqq175.airline.creator.CreatorFactory;
-import org.qqq175.airline.creator.implemented.AirlinerCreator;
-import org.qqq175.airline.creator.implemented.CargoAircraftCreator;
 import org.qqq175.airline.exception.InputDataCorruptedException;
 
 @RunWith(value = Parameterized.class)
