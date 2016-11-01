@@ -31,20 +31,6 @@ public class Train extends Thread {
 		this.semaphore = new Semaphore(0);
 	}
 
-	/**
-	 * @return the direction
-	 */
-	public Direction getDirection() {
-		return direction;
-	}
-
-	/**
-	 * @return the number
-	 */
-	public int getNumber() {
-		return number;
-	}
-
 	@Override
 	public void run() {
 		askPassAndWait();
@@ -80,6 +66,20 @@ public class Train extends Thread {
 		logger.log(Level.INFO, "TRAIN " + getNumber() + " (" + getDirection() + ") entered >>>>>>>>>>>>> tonnel " + tonnel.getName() + " ("
 				+ tonnel.getCurrentDirection() + ")");
 		semaphore.release();
+	}
+
+	/**
+	 * @return the direction
+	 */
+	public Direction getDirection() {
+		return direction;
+	}
+
+	/**
+	 * @return the number
+	 */
+	public int getNumber() {
+		return number;
 	}
 
 	/*

@@ -45,11 +45,28 @@ public class Tonnel implements Runnable {
 		state = State.EMPTY;
 	}
 
-	public void admitTrain(Train train) {
-		enter(train);
+	@Override
+	public void run() {
+		Train currentTrain;
+		Train previousTrain = null;
+		while (true) {
+			try {
+				semaphore.acquire();
+			} catch (InterruptedException e) {
+				logger.log(Level.WARN, "Unexpected interupt!", e);
+			}
+			lock.lock();
+			try {
+				currentTrain = trainsQueue.remove();
+			} finally {
+				lock.unlock();
+			}
+			currentTrain.grantPass(this, previousTrain);
+			previousTrain = currentTrain;
+		}
 	}
 
-	private void enter(Train train) {
+	public void admitTrain(Train train) {
 		if (state != State.LIMIT && state != State.LIMITEMPTY) {
 			switchDirectionCounter.incrementAndGet();
 			trainsInsideNumber.incrementAndGet();
@@ -91,6 +108,33 @@ public class Tonnel implements Runnable {
 		return isSwitched;
 	}
 
+	private void updateState() {
+		stateLock.lock();
+		int trains = trainsInsideNumber.get();
+		int trainsTotal = switchDirectionCounter.get();
+		State newState;
+		if (trainsTotal < Settings.MAX_TRAINS_PER_DIRECTION) {
+			if (trainsTotal > 0) {
+				if (trains > 0) {
+					newState = State.NOTEMPTY;
+				} else {
+					newState = State.EMPTY;
+				}
+			} else {
+				newState = State.EMPTY;
+			}
+		} else {
+			if (trains > 0) {
+				newState = State.LIMIT;
+			} else {
+				newState = State.LIMITEMPTY;
+			}
+		}
+
+		setState(newState);
+		stateLock.unlock();
+	}
+
 	/**
 	 * @return the currentDirection
 	 */
@@ -119,6 +163,26 @@ public class Tonnel implements Runnable {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the state
+	 */
+	public State getState() {
+		stateLock.lock();
+		try {
+			return state;
+		} finally {
+			stateLock.unlock();
+		}
+	}
+
+	/**
+	 * @param state
+	 *            the state to set
+	 */
+	private void setState(State state) {
+		this.state = state;
 	}
 
 	/*
@@ -154,73 +218,5 @@ public class Tonnel implements Runnable {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
-	}
-
-	/**
-	 * @return the state
-	 */
-	public State getState() {
-		stateLock.lock();
-		try {
-			return state;
-		} finally {
-			stateLock.unlock();
-		}
-	}
-
-	/**
-	 * @param state
-	 *            the state to set
-	 */
-	private void setState(State state) {
-		this.state = state;
-	}
-
-	private void updateState() {
-		stateLock.lock();
-		int trains = trainsInsideNumber.get();
-		int trainsTotal = switchDirectionCounter.get();
-		State newState;
-		if (trainsTotal < Settings.MAX_TRAINS_PER_DIRECTION) {
-			if (trainsTotal > 0) {
-				if (trains > 0) {
-					newState = State.NOTEMPTY;
-				} else {
-					newState = State.EMPTY;
-				}
-			} else {
-				newState = State.EMPTY;
-			}
-		} else {
-			if (trains > 0) {
-				newState = State.LIMIT;
-			} else {
-				newState = State.LIMITEMPTY;
-			}
-		}
-
-		setState(newState);
-		stateLock.unlock();
-	}
-
-	@Override
-	public void run() {
-		Train currentTrain;
-		Train previousTrain = null;
-		while (true) {
-			try {
-				semaphore.acquire();
-			} catch (InterruptedException e) {
-				logger.log(Level.WARN, "Unexpected interupt!", e);
-			}
-			lock.lock();
-			try {
-				currentTrain = trainsQueue.remove();
-			} finally {
-				lock.unlock();
-			}
-			currentTrain.grantPass(this, previousTrain);
-			previousTrain = currentTrain;
-		}
 	}
 }
