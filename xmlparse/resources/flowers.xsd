@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Flowers">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="flower" maxOccurs="unbounded" type="Flower" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Flower">
+		<xs:sequence>
+			<xs:element name="soil">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="подзолистая" />
+						<xs:enumeration value="грунтовая" />
+						<xs:enumeration value="дерново-подзолистая" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element ref="visualParameters" />
+			<xs:element ref="growingTips" />
+			<xs:element name="multiplying">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="черенок" />
+						<xs:enumeration value="семена" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" use="required">
+			<xs:simpleType>
+				<xs:restriction base='xs:ID'>
+					<xs:pattern value="[A-Z]{2}[0-9]{4}" />
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:string" use="required" />
+		<xs:attribute name="origin" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<xs:element name="visualParameters">
+		<xs:complexType>
+			<xs:attribute name="stemColor" type="xs:string" use="required" />
+			<xs:attribute name="leafColor" type="xs:string" use="optional" />
+			<xs:attribute name="flowerColor" type="xs:string" use="optional" />
+			<xs:attribute name="size" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="0" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="growingTips">
+		<xs:complexType>
+			<xs:attribute name="temperature" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="0" />
+						<xs:maxExclusive value="100" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="watering" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:minExclusive value="0" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="heliophilous" use="required" type="xs:boolean" />
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

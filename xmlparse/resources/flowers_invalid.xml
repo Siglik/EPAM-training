@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flowers>
+	<flower id="TT1485" name="Яблоня" origin="Россия">
+		<soil>подзолистая</soil>
+		<visualParameters stemColor="красный" size="300"/>
+		<growingTips temperature="25" watering="10000" heliophilous="true"/>
+		<multiplying>черенок</multiplying>
+	</flower>
+	<flower name="Роза" origin="Голландия">
+		<soil>грунтовая</soil>
+		<visualParameters stemColor="желтый" leafColor="зеленый" flowerColor="алый" size="80"/>
+		<growingTips temperature="21" watering="300" heliophilous="true"/>
+		<multiplying>черенок</multiplying>
+	</flower>
+</Flowers>

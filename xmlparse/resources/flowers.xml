@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flowers>
+	<flower id="TT1485" name="Яблоня" origin="Россия">
+		<soil>подзолистая</soil>
+		<visualParameters stemColor="темно-коричневый" size="300"/>
+		<growingTips temperature="25" watering="10000" heliophilous="true"/>
+		<multiplying>черенок</multiplying>
+	</flower>
+	<flower id="DC1775" name="Роза" origin="Голландия">
+		<soil>грунтовая</soil>
+		<visualParameters stemColor="коричневый" leafColor="зеленый" flowerColor="алый" size="80"/>
+		<growingTips temperature="21" watering="300" heliophilous="true"/>
+		<multiplying>черенок</multiplying>
+	</flower>
+	<flower id="RF1145" name="Тюльпан" origin="Беларусь">
+        <soil>дерново-подзолистая</soil>
+        <visualParameters stemColor="зеленый" leafColor="зеленый" flowerColor="желтый" size="60"/>
+        <growingTips temperature="18" watering="280" heliophilous="true"/>
+        <multiplying>семена</multiplying>
+    </flower>
+    <flower id="QW9575" name="Подсолнух" origin="Беларусь">
+        <soil>грунтовая</soil>
+        <visualParameters stemColor="зеленый" leafColor="зеленый" size="200"/>
+        <growingTips temperature="24" watering="1500" heliophilous="true"/>
+        <multiplying>семена</multiplying>
+    </flower>
+    <flower id="KI4664" name="Спацифилум" origin="Перу">
+        <soil>дерново-подзолистая</soil>
+        <visualParameters stemColor="зеленый" leafColor="зеленый" size="40"/>
+        <growingTips temperature="20" watering="120" heliophilous="false"/>
+        <multiplying>черенок</multiplying>
+    </flower>
+    <flower id="XX1899" name="Кактус" origin="Австралия">
+        <soil>грунтовая</soil>
+        <visualParameters stemColor="зеленый" size="140"/>
+        <growingTips temperature="30" watering="200" heliophilous="true"/>
+        <multiplying>черенок</multiplying>
+    </flower>
+    <flower id="IU7476" name="Монстера" origin="Бразилия">
+        <soil>дерново-подзолистая</soil>
+        <visualParameters stemColor="зеленый" leafColor="зеленый" size="300"/>
+        <growingTips temperature="22" watering="500" heliophilous="false"/>
+        <multiplying>семена</multiplying>
+    </flower>
+    <flower id="HU8914" name="Роза" origin="Голландия">
+        <soil>подзолистая</soil>
+        <visualParameters stemColor="зеленый" leafColor="зеленый" flowerColor="белый" size="80"/>
+        <growingTips temperature="21" watering="300" heliophilous="true"/>
+        <multiplying>черенок</multiplying>
+    </flower>
+    <flower id="DD9934" name="Ромашка" origin="Голландия">
+        <soil>грунтовая</soil>
+        <visualParameters stemColor="желтый" leafColor="зеленый" flowerColor="алый" size="80"/>
+        <growingTips temperature="21" watering="300" heliophilous="true"/>
+        <multiplying>семена</multiplying>
+    </flower>
+    <flower id="TR3456" name="Маргаритки" origin="Италия">
+        <soil>дерново-подзолистая</soil>
+        <visualParameters stemColor="салатовый" leafColor="зеленый" flowerColor="белый" size="80"/>
+        <growingTips temperature="21" watering="300" heliophilous="true"/>
+        <multiplying>черенок</multiplying>
+    </flower>
+    <flower id="PF1191" name="Фиалка" origin="Россия">
+        <soil>грунтовая</soil>
+        <visualParameters stemColor="салатовый" leafColor="зеленый" flowerColor="фиолетовый" size="25"/>
+        <growingTips temperature="16" watering="70" heliophilous="false"/>
+        <multiplying>семена</multiplying>
+    </flower>
+    <flower id="GB4933" name="Плющ" origin="Великобритания">
+        <soil>подзолистая</soil>
+        <visualParameters stemColor="коричневый" leafColor="салатоо-зеленый" size="75"/>
+        <growingTips temperature="25" watering="350" heliophilous="true"/>
+        <multiplying>черенок</multiplying>
+    </flower>
+    <flower id="TR9900" name="Драцена" origin="Перу">
+        <soil>дерново-подзолистая</soil>
+        <visualParameters stemColor="светло-коричневый" leafColor="бело-зеленые" size="50"/>
+        <growingTips temperature="21" watering="230" heliophilous="false"/>
+        <multiplying>черенок</multiplying>
+    </flower>
+    <flower id="LS0547" name="Гвоздики" origin="Польша">
+        <soil>грунтовая</soil>
+        <visualParameters stemColor="зеленый" leafColor="зеленый" flowerColor="красный" size="80"/>
+        <growingTips temperature="21" watering="170" heliophilous="true"/>
+        <multiplying>семена</multiplying>
+    </flower>
+    <flower id="EY0025" name="Орхидея" origin="Франция">
+        <soil>дерново-подзолистая</soil>
+        <visualParameters stemColor="темно-зеленый" leafColor="зеленый" flowerColor="розовый" size="110"/>
+        <growingTips temperature="23" watering="300" heliophilous="true"/>
+        <multiplying>черенок</multiplying>
+    </flower>
+    <flower id="PP4415" name="Фикус" origin="Дания">
+        <soil>подзолистая</soil>
+        <visualParameters stemColor="коричневый" leafColor="зеленый" size="100"/>
+        <growingTips temperature="19" watering="100" heliophilous="false"/>
+        <multiplying>черенок</multiplying>
+    </flower>
+</Flowers>
